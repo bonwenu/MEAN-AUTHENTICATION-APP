@@ -1,0 +1,23 @@
+<h1 style="text-align: center">Register</h1>
+<br><br>
+<div style= "margin-left: 4in;" class="container" >
+        
+        
+    <form >
+        <label>First Name</label><br>
+        <input [(ngModel)]="firstname" type="text" name="firstname"><br><br>
+        <label>Last Name</label><br>
+        <input [(ngModel)]="lastname" type="text" name="lastname"><br><br>
+        <label> Username</label><br>
+        <input [(ngModel)]="username" type="text" name="username"><br><br>
+        <label>Password</label><br>
+        <input [(ngModel)]="password" type="text" name="password"><br><br>
+        <label>Email</label><br>
+        <input [(ngModel)]="email" type="text" name="emial"><br><br>
+        <div style = "text-align: center; margin-right: 4in;">
+            <button (click)=register() class="btn btn-primary">Register</button> 
+            <br><br><br>
+        </div>
+    </form>
+
+</div>
