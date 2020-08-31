@@ -18,10 +18,10 @@ router.post('/register', (req, res, next) => {
 
     User.addUser(newUser, (err, user) => {
         if(err) {
-            res.json({success: false, msg: 'Failed to register user'})
+            res.json({success: false, message: 'Failed to register user'})
         }
         else {
-            res.json({success: true, msg: `${newUser.username} is now registered.`})
+            res.json({success: true, message: `${newUser.username} is now registered.`})
         }
     })
 });
@@ -37,7 +37,7 @@ router.post('/authenticate', (req, res, next) => {
         }
         // If user is not returned
         if(!user) {
-            return res.json({success: false, msg: 'User not found'});
+            return res.json({success: false, message: 'User not found'});
         }
         // If username is present, check password
         User.comparePassword(password, user.password, (err, isMatch) => {

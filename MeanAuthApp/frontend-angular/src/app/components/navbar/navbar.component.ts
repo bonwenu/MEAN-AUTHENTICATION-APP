@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authorizor: AuthService,
+    private flashMessage:FlashMessagesService,
+    private router:Router) { }
 
   ngOnInit() {
+  }
+
+  logout() {
+    this.authorizor.logout();
+    this.flashMessage.show('You have been logged out!', {
+      cssClass: 'alert-warning', 
+      timeout: 3000});
+    this.router.navigate(['login']);
   }
 
 }
