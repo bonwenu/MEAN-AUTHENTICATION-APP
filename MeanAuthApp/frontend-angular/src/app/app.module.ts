@@ -3,9 +3,11 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
+
 
 
 import { RegisterComponent } from './components/register/register.component';
@@ -13,6 +15,7 @@ import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { ValidateService } from './services/validate.service';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @NgModule({
   declarations: [
@@ -28,9 +31,10 @@ import { ValidateService } from './services/validate.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    FlashMessagesModule
   ],
-  providers: [ValidateService],
+  providers: [ValidateService, FlashMessagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
