@@ -41,7 +41,6 @@ export class AuthService {
 
     this.authToken = null;
     this.user = null;
-
     localStorage.clear();
   }
 
@@ -52,6 +51,24 @@ export class AuthService {
     else {
       return false;
     }
+  }
+
+  getProfile() {
+
+    this.loadToken();
+    const headers = new HttpHeaders({ 
+      'Content-Type': 'application/json', 
+      'Authorization': this.authToken 
+    }); 
+
+    return this.http.get(this.url + '/users/profile', {headers: headers});
+  }
+
+  loadToken() {
+    
+    const token = localStorage.getItem('id_token');
+    this.authToken = token;
+
   }
   
 }
