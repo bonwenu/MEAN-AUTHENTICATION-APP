@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from "rxjs/operators"; 
+import { tokenNotExpired } from 'angular2-jwt';
 
 
 @Injectable({
@@ -44,13 +45,8 @@ export class AuthService {
     localStorage.clear();
   }
 
-  isUserLoggedIn() {
-    if(this.authToken != null) {
-      return true;
-    }
-    else {
-      return false;
-    }
+  loggedIn() {
+    return tokenNotExpired('id_token');
   }
 
   getProfile() {

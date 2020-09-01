@@ -10,14 +10,17 @@
             <a routerLink="/login" class="nav-link">Home</a>
           </li>
           <li class= "nav-item active">
-            <a *ngIf="authorizor.isUserLoggedIn()" routerLink="/profile" class="nav-link">Profile</a>
+            <a *ngIf="authorizor.loggedIn()" routerLink="/dashboard" class="nav-link">Dashboard</a>
+          </li>
+          <li class= "nav-item active">
+            <a *ngIf="authorizor.loggedIn()" routerLink="/profile" class="nav-link">Profile</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> 
-          <button class="btn btn-outline-success my-2 my-sm-0"  *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" >Log In</button>
-          -->
-          <button class="btn btn-outline-warning my-2 my-sm-0"  *ngIf="authorizor.isUserLoggedIn()" (click)="logout()" >Log Out</button>
+          <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
+          <button class="btn btn-outline-success my-2 my-sm-0"  *ngIf="!authorizor.loggedIn()" routerLink="/login" >Log In</button>
+          
+          <button class="btn btn-outline-warning my-2 my-sm-0"  *ngIf="authorizor.loggedIn()" (click)="logout()" >Log Out</button>
         </form>
       </div>
     </nav>

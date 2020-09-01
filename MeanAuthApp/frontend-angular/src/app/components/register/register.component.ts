@@ -19,10 +19,13 @@ export class RegisterComponent implements OnInit {
 
   constructor(private validator:ValidateService, 
               private flashMessage: FlashMessagesService, 
-              private authurizor: AuthService,
+              private authorizor: AuthService,
               private router:Router) { }
 
   ngOnInit() {
+    if(this.authorizor.loggedIn()) {
+      this.router.navigate(['dashboard']);
+    }
   }
 
   register() {
@@ -55,7 +58,7 @@ export class RegisterComponent implements OnInit {
     this.password = undefined;
 
     // Register user
-    this.authurizor.registerUser(user).subscribe((data:any) => {
+    this.authorizor.registerUser(user).subscribe((data:any) => {
       if(data.success) {
         this.flashMessage.show("You are now registered and can log in.", {cssClass: 'alert-success', timeout: 3000});
         setTimeout(() => {
