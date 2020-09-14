@@ -9,7 +9,7 @@ const usersRoute = require('./routes/users');
 
 // Connect to MongoDB database
 // Config.database is the localhost url
-mongoose.connect(config.database, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(`mongodb+srv://${config.username}:${config.password}@mongocloud.a3fia.mongodb.net/{${config.database}}?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true});
 
 // Connection Success
 mongoose.connection.on('conneection', () => {

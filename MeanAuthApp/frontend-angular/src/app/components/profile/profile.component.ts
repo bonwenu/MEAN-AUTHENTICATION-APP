@@ -16,7 +16,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.authorizor.getProfile().subscribe((profile: any) => {
-      console.log(`Profile is ${profile}`);
       this.user = profile.user;
     },
     err => {
