@@ -50,7 +50,6 @@ export class RegisterComponent implements OnInit {
       return false;
     }
     // Clear fields if successful
-    console.log("Registration successful.")
     this.firstname = undefined;
     this.lastname = undefined;
     this.email = undefined;
