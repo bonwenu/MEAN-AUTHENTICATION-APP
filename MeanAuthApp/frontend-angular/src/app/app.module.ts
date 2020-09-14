@@ -17,6 +17,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ValidateService } from './services/validate.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { AuthGuardService } from './services/auth-guard.service';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { AuthGuardService } from './services/auth-guard.service';
     FormsModule,
     FlashMessagesModule
   ],
-  providers: [ValidateService, FlashMessagesService, AuthGuardService],
+  providers: [ValidateService, FlashMessagesService, AuthGuardService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

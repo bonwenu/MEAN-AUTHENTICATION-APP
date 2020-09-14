@@ -25,8 +25,6 @@ export class LoginComponent implements OnInit {
 
   checkLogin() {
 
-    console.log("Login clicked.");
-
     const user = {
       username: this.username,
       password: this.password
